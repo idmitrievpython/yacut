@@ -1,37 +1,43 @@
-Клонировать репозиторий и перейти в него в командной строке:
+# YaCut
+Сервис укорачивания ссылок с web интерфейсом и REST API. Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.
 
+## Содержание
+- [Технологии](#технологии)
+- [Использование](#использование)
+- [REST API](#rest-api)
+- [Над проектом работали](#над-проектом-работали)
+
+## Технологии
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/)
+- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/)
+- [Jinja](https://jinja.palletsprojects.com/)
+- [Flask-WTF](https://flask-wtf.readthedocs.io/)
+- [Flask-Migrate](https://flask-migrate.readthedocs.io/)
+
+## Использование
+Склонируйте репозиторий  
+Создайте виртуальное окружение 
 ```
-git clone 
+python -m venv venv
 ```
-
-```
-cd yacut
-```
-
-Cоздать и активировать виртуальное окружение:
-
-```
-python3 -m venv venv
-```
-
-* Если у вас Linux/macOS
-
-    ```
-    source venv/bin/activate
-    ```
-
-* Если у вас windows
-
-    ```
-    source venv/scripts/activate
-    ```
-
-Установить зависимости из файла requirements.txt:
-
-```
-python3 -m pip install --upgrade pip
-```
-
+Активируйте виртуальное окружение  
+Установите зависимости 
 ```
 pip install -r requirements.txt
 ```
+Примените миграции
+```
+flask db upgrade
+```
+Запустите сервер
+```
+flask run
+```
+web интервейс будет доступен по адресу http://localhost:5000/
+
+## REST API
+Документация по API: 
+
+## Над проектом работал
+- [Илья Дмитриев]
