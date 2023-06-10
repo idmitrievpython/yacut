@@ -14,7 +14,9 @@
 
 <body>
   {% include "includes/header.html" %}
-  {% block content %}{% endblock content %}
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
   {% include "includes/footer.html" %}
 </body>
 <script src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"

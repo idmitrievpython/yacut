@@ -4,6 +4,7 @@ from wtforms.validators import (URL, DataRequired, Length, Optional, Regexp,
                                 ValidationError)
 
 from .models import URLMap
+from settings import REGEX_PATTERN
 
 
 class URLMapForm(FlaskForm):
@@ -15,8 +16,8 @@ class URLMapForm(FlaskForm):
     custom_id = StringField(
         'Ваш вариант короткой ссылки', validators=[
             Length(1, 16), Optional(), Regexp(
-                r'^[A-Za-z0-9]+$',
-                message='Можно использовать только [A-Za-z0-9]')])
+                REGEX_PATTERN,
+                message='Можно использовать только латинские буквы и арабские цифры')])
     submit = SubmitField('Создать')
 
     def validate_custom_id(self, field):
