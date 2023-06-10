@@ -9,13 +9,13 @@ from .utils import get_unique_short_id
 @app.route('/', methods=['GET', 'POST'])
 def index_view():
     form = URLMapForm()
-    if  not form.validate_on_submit():
+    if not form.validate_on_submit():
         return render_template('main.html', form=form)
     short = form.custom_id.data or get_unique_short_id()
     url_map = URLMap(
-            original=form.original_link.data,
-            short=short
-        )
+        original=form.original_link.data,
+        short=short
+    )
     flash(url_for('opinion_view', short=short, _external=True))
     db.session.add(url_map)
     db.session.commit()
